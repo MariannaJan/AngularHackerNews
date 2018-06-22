@@ -1,0 +1,17 @@
+<div *ngIf="!comment.deleted">
+    <span class="text-danger" (click)="collapse = !collapse">[{{collapse ? '+' : '-'}}]</span>
+      <span class="text-danger">{{ comment.user }} {{ comment.time_ago }}</span>
+
+    <div [hidden]="collapse">
+      <p [innerHTML]="comment.content"></p>
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let subComment of comment.comments" class="list-group-item d-flex justify-content-between align-items-center">
+          <app-comment [comment]="subComment"></app-comment>
+        </li>
+      </ul>
+    </div>
+</div>
+
+<div *ngIf="comment.deleted">
+  Comment deleted
+</div>

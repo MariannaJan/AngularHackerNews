@@ -1,0 +1,14 @@
+<div *ngIf="item">
+  <p><a href="{{ item.url }}"> {{ item.title }} </a></p>
+  <span class="text-danger">{{ item.points }} points by {{ item.user }} {{ item.time_ago }}</span>
+
+
+  <a [routerLink]="['/item', item.id]">
+  <span *ngIf="item.comments_count !== 0">
+    {{item.comments_count}}
+    <span *ngIf="item.comments_count === 1">Comment</span>
+    <span *ngIf="item.comments_count > 1">Comments</span>
+  </span>
+  <span *ngIf="item.comments_count === 0">Discuss</span>
+</a>
+</div>

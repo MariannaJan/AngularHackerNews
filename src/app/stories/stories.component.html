@@ -1,0 +1,9 @@
+<div *ngIf="items">
+<ol start="{{ listStart }}" class="list-group">
+  <li *ngFor="let item of items" class="list-group-item">
+    <app-item [item]="item"></app-item>
+  </li>
+</ol>
+</div>
+<a *ngIf="listStart !==1" [routerLink]="['/' + storiesType, pageNum - 1]" class="btn btn-danger">Prev</a>
+<a *ngIf="items.length === 30" [routerLink]="['/' + storiesType, pageNum + 1]" class="btn btn-danger">More</a>
